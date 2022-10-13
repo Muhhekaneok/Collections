@@ -38,10 +38,6 @@ public class Test {
 
         nums1 = new int[hashSet1.toArray().length];
         nums2 = new int[hashSet2.toArray().length];
-//        for (int i = 0, j = 0; i < nums1.length && j < nums2.length; i++, j++) {
-//            nums1[i] = (int) hashSet1.toArray()[i];
-//            nums2[j] = (int) hashSet2.toArray()[j];
-//        }
 
         for (int i = 0; i < nums1.length; i++) {
             nums1[i] = (int) hashSet1.toArray()[i];
@@ -57,14 +53,21 @@ public class Test {
         List<Integer> list2 = new ArrayList<>();
         List<Integer> list3 = new ArrayList<>();
 
-        // TODO: 16-Sep-22  nums1 = [4,9,5], nums2 = [9,4,9,8,4] - it works,
+        // TODO: 16-Sep-22 nums1 = [4,9,5], nums2 = [9,4,9,8,4] - it works, because nums1.length == nums2.length
         // TODO: 16-Sep-22 nums1 = [1,2,2,1], nums2 = [2,2] - doesn't works :( ...
         if (nums1.length >= nums2.length) {
             numsResult = new int[nums1.length];
-            for (int i = 0, j = 0; i < numsResult.length && j < numsResult.length; i++, j++) {
+            int count1 = 0;
+            int count2 = 0;
+            for (int i = 0; i < numsResult.length; i++) {
                 numsResult[i] = nums1[i];
                 list1.add(numsResult[i]);
-                list2.add(nums2[j]);
+//                ++count1;
+                list2.add(nums2[i]);
+//                ++count2;
+//                if ((count2 < count2)) {
+//                    break;
+//                }
             }
         } else {
             numsResult = new int[nums2.length];
@@ -79,13 +82,11 @@ public class Test {
 
         if (list1.size() >= list2.size()) {
             for (int i = 0; i < list1.size(); i++) {
-                if (list1.get(i) == list2.get(i))
-                    list3.add(list1.get(i));
+                if (list1.get(i) == list2.get(i)) list3.add(list1.get(i));
             }
         } else {
             for (int i = 0; i < list2.size(); i++) {
-                if (list1.get(i) == list2.get(i))
-                    list3.add(list2.get(i));
+                if (list1.get(i) == list2.get(i)) list3.add(list2.get(i));
             }
         }
         System.out.println(list3);
