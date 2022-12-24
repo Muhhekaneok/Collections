@@ -17,6 +17,13 @@ public class Test {
 
         Map<String, Integer> sortedMap = sortByValue(nonSortedMap);
         sortedMap.entrySet().forEach(x -> System.out.println(x));
+
+        System.out.println();
+
+        nonSortedMap.entrySet()
+                .stream()
+                .sorted(Comparator.comparingInt(Map.Entry::getValue))
+                .forEach(System.out::println);
     }
 
     public static Map<String, Integer> sortByValue(Map<String, Integer> map) {
